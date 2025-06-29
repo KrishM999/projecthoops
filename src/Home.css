@@ -337,3 +337,111 @@ body {
 .hero-fade-image.visible {
   opacity: 1;
 }
+
+@media (max-width: 600px) {
+  .hero-container {
+    height: auto;
+    padding: 10px;
+  }
+  .hero-heading {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    max-width: 95vw;
+  }
+  .hero-subtext {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    max-width: 95vw;
+  }
+  .button-wrapper {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .signup-btn {
+    font-size: 1rem;
+    padding: 12px 18px;
+    width: 100%;
+  }
+  .fundraising-section {
+    padding: 2rem 0.5rem;
+  }
+  .fundraising-card {
+    border-radius: 1rem;
+    min-height: 260px;
+    box-shadow: 0 2px 8px rgba(59,130,246,0.10);
+  }
+  .p-8 {
+    padding: 1rem 0.5rem 1rem 0.5rem;
+  }
+  .fund-title {
+    font-size: 1.25rem;
+  }
+  .fund-desc {
+    font-size: 1rem;
+    max-width: 95vw;
+  }
+  .amount {
+    font-size: 1.5rem;
+  }
+  .amount-large {
+    font-size: 2rem;
+  }
+  .progress-bar-bg {
+    height: 1rem;
+  }
+  .progress-percent-center {
+    font-size: 1rem;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .stat-card {
+    padding: 1rem;
+  }
+  .stat-large {
+    padding: 1.25rem 0.5rem;
+  }
+  .stat-value-large {
+    font-size: 1.25rem;
+  }
+  .stat-label-large {
+    font-size: 0.95rem;
+  }
+  .cta-btn, .cta-btn-gradient, .cta-btn-singleline {
+    font-size: 1rem;
+    padding: 12px 10px;
+  }
+  .cta-btn-singleline {
+    font-size: 0.95rem;
+  }
+  .progress-labels {
+    font-size: 0.75rem;
+  }
+  .hero-fade-image {
+    min-height: 220px;
+    max-height: 40vh;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero-heading {
+    font-size: 1.25rem;
+  }
+  .fund-title {
+    font-size: 1rem;
+  }
+  .amount-large {
+    font-size: 1.25rem;
+  }
+  .stat-value-large {
+    font-size: 1rem;
+  }
+  .stat-label-large {
+    font-size: 0.8rem;
+  }
+  .cta-btn, .cta-btn-gradient, .cta-btn-singleline {
+    font-size: 0.85rem;
+    padding: 8px 4px;
+  }
+}

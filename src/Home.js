@@ -4,7 +4,21 @@ import { Link } from "react-router-dom";
 import { Instagram } from "lucide-react";
 
 // Preload images for faster hero image display
-const heroImages = ["/KEV_6811.jpg", "/KEV_6841.jpg", "/KEV_6901.jpg"];
+const heroImages = [
+  "/KEV_6811.jpg",
+  "/KEV_6841.jpg",
+  "/KEV_6901.jpg",
+  "/KEV_6854.jpg",
+  "/KEV_6934.jpg",
+  "/KEV_6963.jpg",
+  "/KEV_6995.jpg",
+  "/KEV_7007.jpg",
+  "/KEV_7054.jpg",
+  "/KEV_7079.jpg",
+  "/KEV_7148.jpg",
+  "/KEV_7242.jpg",
+  "/KEV_7243.jpg"
+];
 heroImages.forEach((src) => {
   const img = new window.Image();
   img.src = src;
@@ -25,8 +39,8 @@ export default function Home() {
   }, []);
   // --- END HERO IMAGE FADE ---
 
-  const targetAmount = 45000;
-  const goalAmount = 80000;
+  const targetAmount = 82000;
+  const goalAmount = 135000;
 
   const containerStyle = {
     borderRadius: "12px",
@@ -130,6 +144,11 @@ export default function Home() {
                 Sign Up Now <span className="ml-2">→</span>
               </button>
             </Link>
+            <a href="https://www.gofundme.com/f/help-vt-seva-provide-for-unprivileged-kids?utm_campaign=natman_sharesheet_dash&utm_medium=customer&utm_source=copy_link&attribution_id=sl:f1817a51-c678-48c6-b06f-6e85d4d302b4" target="_blank" rel="noopener noreferrer">
+              <button className="signup-btn" style={{ marginLeft: '12px' }}>
+                Support Us
+              </button>
+            </a>
           </div>
         </div>
       </div>
@@ -141,9 +160,9 @@ export default function Home() {
         <div className="fundraising-card">
           <div className="p-8">
             <div className="text-center mb-8">
-              <h2 className="fund-title">Community Impact Fund</h2>
+              <h2 className="fund-title">Project Hoops Fundraiser</h2>
               <p className="fund-desc">
-                Help us reach our goal to expand basketball programs and youth development initiatives across the Bay Area.
+                Help us reach our goal to expand basketball programs and youth development initiatives across the Bay Area and India.
               </p>
             </div>
 
@@ -174,8 +193,8 @@ export default function Home() {
               {/* Stats Grid */}
               <div className="stats-grid">
                 <div className="stat-card stat-blue stat-large">
-                  <div className="stat-value stat-value-large">250+</div>
-                  <div className="stat-label stat-label-large">Youth Served</div>
+                  <div className="stat-value stat-value-large">225+</div>
+                  <div className="stat-label stat-label-large">Youth Provided Education, Housing, and Food</div>
                 </div>
                 <div className="stat-card stat-purple stat-large">
                   <div className="stat-value stat-value-large">4</div>
@@ -191,12 +210,7 @@ export default function Home() {
 
               {/* Call to Action */}
               <div style={{ maxWidth: '500px', margin: '0 auto', paddingTop: '2rem' }}>
-                <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', gap: '40px' }}>
-                  <a href="https://www.gofundme.com/f/help-vt-seva-provide-for-unprivileged-kids?utm_campaign=natman_sharesheet_dash&utm_medium=customer&utm_source=copy_link&attribution_id=sl:f1817a51-c678-48c6-b06f-6e85d4d302b4" target="_blank" rel="noopener noreferrer" style={{ flex: 1 }}>
-                    <button className="cta-btn cta-btn-gradient cta-btn-singleline" style={{ width: '100%' }}>
-                      Support Our Mission
-                    </button>
-                  </a>
+                <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: '40px' }}>
                   <a
                     href="https://www.instagram.com/project_hoops_/"
                     target="_blank"

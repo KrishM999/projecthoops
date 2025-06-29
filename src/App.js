@@ -5,6 +5,7 @@ import About from './About';
 import Contact from './Contact';
 import SignUpForm from './SignUpForm';
 import Header from './Header';
+import SponsorUs from './SponsorUs';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/signup" element={<SignUpForm />} />
+            <Route path="/sponsor-us" element={<SponsorUs />} />
           </Routes>
         </main>
       </div>

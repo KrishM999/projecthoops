@@ -1,3 +1,11 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .hero-container {
   height: 100vh;
   display: flex;
@@ -10,7 +18,6 @@
   color: #ffffff;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6); /* Ensures readability */
 }
-
 
 .hero-heading {
   color: #e0f7ff;
@@ -35,10 +42,11 @@
 }
 
 .hero-subtext {
-  font-size: 1.2rem;
-  color: #ffffff;
-  max-width: 600px;
-  margin: 20px auto 40px auto;
+  color: #fff;
+  font-size: 1.25rem;
+  max-width: 32rem;
+  margin: 0 auto 2.5rem auto;
+  text-align: center;
 }
 
 .hero-image {
@@ -53,29 +61,279 @@
 .button-wrapper {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
 }
 
-.hero-button {
-  background-color: #3f47ff;
-  color: white;
-  font-size: 1rem;
-  padding: 14px 28px;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
+.signup-btn {
+  background: #2563eb;
+  color: #fff;
+  padding: 16px 32px;
+  border-radius: 9999px;
+  font-size: 1.125rem;
   font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  transition: background 0.3s ease, transform 0.3s ease;
+  transition: background 0.3s;
+  border: none;
+  cursor: pointer;
 }
 
-.hero-button:hover {
-  background-color: #2e35d3;
-  transform: translateY(-3px);
+.signup-btn:hover {
+  background: #1d4ed8;
 }
 
-.arrow {
-  font-size: 1.2rem;
+.fundraising-section {
+  padding: 4rem 1.5rem;
+  background: linear-gradient(to bottom, #f9fafb, #fff);
+}
+
+.fundraising-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  min-height: 480px;
+  padding: 0;
+  background: #fff;
+  border-radius: 2rem;
+  box-shadow: 0 8px 32px rgba(59,130,246,0.08);
+}
+
+.fund-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.fund-desc {
+  font-size: 1.125rem;
+  color: #64748b;
+  margin: 0 auto;
+  max-width: 32rem;
+}
+
+.amount {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 0.5rem;
+}
+
+.goal-desc {
+  font-size: 1.125rem;
+  color: #64748b;
+}
+
+.progress-bar-bg {
+  width: 100%;
+  background: #e5e7eb;
+  border-radius: 9999px;
+  height: 1.5rem;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(to right, #3b82f6, #a78bfa);
+  border-radius: 9999px;
+  position: relative;
+  transition: width 2s;
+}
+
+.progress-bar-shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, transparent, #fff, transparent);
+  opacity: 0.3;
+  animation: shimmer 2s infinite;
+}
+
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: #64748b;
+  margin-top: 0.5rem;
+}
+
+.progress-percent {
+  font-weight: 600;
+  color: #2563eb;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.stat-card {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.stat-blue {
+  background: #eff6ff;
+}
+
+.stat-purple {
+  background: #f3e8ff;
+}
+
+.stat-green {
+  background: #ecfdf5;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: #64748b;
+}
+
+.cta-wrapper {
+  text-align: center;
+  padding-top: 2rem;
+}
+
+.cta-btn, .cta-btn-gradient, .cta-btn-singleline {
+  font-size: 1.15rem;
+  font-weight: 700;
+  padding: 18px 32px;
+  border-radius: 9999px;
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 16px rgba(59,130,246,0.15);
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  background: linear-gradient(to right, #3b82f6, #a78bfa);
+  transition: background 0.3s, transform 0.3s;
+  cursor: pointer;
+}
+
+.cta-btn:hover, .cta-btn-gradient:hover, .cta-btn-singleline:hover {
+  background: linear-gradient(to right, #2563eb, #a78bfa);
+  transform: scale(1.05);
+}
+
+.cta-btn-singleline {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.8s ease-out;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+.amount-large {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #2563eb;
+  margin-bottom: 0.5rem;
+}
+.progress-bar-section {
+  margin-bottom: 2rem;
+}
+.progress-percent-center {
+  text-align: center;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 0.5rem;
+}
+.smoother-progress {
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.stat-large {
+  background: #f1f5fd;
+  border-radius: 1.5rem;
+  padding: 2.5rem 1rem;
+}
+.stat-blue.stat-large {
+  background: #eaf2ff;
+}
+.stat-purple.stat-large {
+  background: #f5eaff;
+}
+.stat-green.stat-large {
+  background: #eafff5;
+}
+.stat-value-large {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #222;
+}
+.stat-label-large {
+  font-size: 1.125rem;
+  color: #64748b;
+}
+
+.p-8 {
+  flex: 1 1 auto;
+  padding: 3.5rem 2.5rem 2.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+@media (max-width: 900px) {
+  .fundraising-card {
+    min-height: 380px;
+  }
+  .p-8 {
+    padding: 2rem 1rem 1.5rem 1rem;
+  }
+}
+
+.hero-fade-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 1.2s ease-in-out;
+  pointer-events: none;
+}
+.hero-fade-image.visible {
+  opacity: 1;
 }

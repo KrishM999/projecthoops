@@ -19,10 +19,10 @@ const heroImages = [
   "/images/KEV_7242.jpg",
   "/images/KEV_7243.jpg"
 ];
-heroImages.forEach((src) => {
-  const img = new window.Image();
-  img.src = src;
-});
+
+// Preload only the first hero image for instant display
+const preloadImg = new window.Image();
+preloadImg.src = heroImages[0];
 
 export default function Home() {
   const [raisedAmount, setRaisedAmount] = useState(0);
@@ -77,7 +77,7 @@ export default function Home() {
   useEffect(() => {
     if (isVisible) {
       let start = null;
-      const duration = 2800; // 2.8 seconds for smoother effect
+      const duration = 2800; // Changing comments with a 2.8 second delay for smoother effect
       const startAmount = 0;
       const endAmount = targetAmount;
 
@@ -115,6 +115,7 @@ export default function Home() {
             key={src}
             src={src}
             alt="hero"
+            loading="lazy"
             className={`hero-fade-image${heroIndex === idx ? ' visible' : ''}`}
             style={{
               position: 'absolute',

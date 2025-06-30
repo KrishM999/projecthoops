@@ -5,19 +5,19 @@ import { Instagram } from "lucide-react";
 
 // Preload images for faster hero image display
 const heroImages = [
-  "/images/KEV_6811.jpg",
-  "/images/KEV_6841.jpg",
-  "/images/KEV_6901.jpg",
-  "/images/KEV_6854.jpg",
-  "/images/KEV_6934.jpg",
-  "/images/KEV_6963.jpg",
-  "/images/KEV_6995.jpg",
-  "/images/KEV_7007.jpg",
-  "/images/KEV_7054.jpg",
-  "/images/KEV_7079.jpg",
-  "/images/KEV_7148.jpg",
-  "/images/KEV_7242.jpg",
-  "/images/KEV_7243.jpg"
+  "/images/KEV_6811-min.jpg",
+  "/images/KEV_6841-min.jpg",
+  "/images/KEV_6901-min.jpg",
+  "/images/KEV_6854-min.jpg",
+  "/images/KEV_6934-min.jpg",
+  "/images/KEV_6963-min.jpg",
+  "/images/KEV_6995-min.jpg",
+  "/images/KEV_7007-min.jpg",
+  "/images/KEV_7054-min.jpg",
+  "/images/KEV_7079-min.jpg",
+  "/images/KEV_7148-min.jpg",
+  "/images/KEV_7242-min.jpg",
+  "/images/KEV_7243-min.jpg"
 ];
 
 // Preload only the first hero image for instant display

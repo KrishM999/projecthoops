@@ -8,7 +8,7 @@ function Header() {
     <header className="header">
       <div className="header-logo">
         <Link to="/">
-          <img src="/IMG_6121.PNG" alt="Project Hoops Logo" className="logo" />
+          <img src="/IMG_6121.png" alt="Project Hoops Logo" className="logo" />
         </Link>
       </div>
       <button className="menu-toggle" onClick={() => setMenuOpen((open) => !open)} aria-label="Toggle navigation">

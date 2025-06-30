@@ -84,18 +84,31 @@
     .about-container {
         padding: 0.5rem;
         min-height: 80vh;
+        border-radius: 0.5rem;
     }
     .heading-primary {
-        font-size: 1.3rem;
-        margin-bottom: 1rem;
+        font-size: 1.1rem;
+        margin-bottom: 0.7rem;
     }
     .heading-secondary {
-        font-size: 1.1rem;
-        margin-bottom: 0.5rem;
+        font-size: 1rem;
+        margin-bottom: 0.4rem;
     }
     .paragraph {
         font-size: 0.95rem;
         margin-bottom: 0.5rem;
+    }
+    .card {
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        min-height: 44px;
+    }
+    .list-item {
+        padding: 0.5rem 0;
+    }
+    .link {
+        font-size: 1rem;
+        min-height: 44px;
     }
 }
 

@@ -75,3 +75,34 @@
     margin-top: 10px;
   }
   
+  @media (max-width: 600px) {
+    .signup-form {
+      max-width: 98vw;
+      margin: 20px auto;
+      padding: 10px;
+      border-radius: 0.5rem;
+    }
+    .signup-form h1 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+    .signup-form label {
+      font-size: 0.95rem;
+    }
+    .signup-form input,
+    .signup-form textarea,
+    .signup-form select {
+      font-size: 0.95rem;
+      padding: 10px;
+      min-height: 44px;
+    }
+    .signup-form button {
+      font-size: 1rem;
+      padding: 12px;
+      min-height: 44px;
+    }
+    .signup-form .small-text {
+      font-size: 0.9rem;
+    }
+  }
+  

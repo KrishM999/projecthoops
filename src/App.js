@@ -6,6 +6,8 @@ import Contact from './Contact';
 import SignUpForm from './SignUpForm';
 import Header from './Header';
 import SponsorUs from './SponsorUs';
+import { Analytics } from "@vercel/analytics/react";
+
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
             <Route path="/sponsor-us" element={<SponsorUs />} />
           </Routes>
         </main>
+        <Analytics />
       </div>
     </Router>
   );

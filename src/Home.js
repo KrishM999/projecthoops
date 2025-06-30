@@ -31,12 +31,40 @@ export default function Home() {
 
   // --- HERO IMAGE FADE ---
   const [heroIndex, setHeroIndex] = useState(0);
+  const [loadedImages, setLoadedImages] = useState([false, ...Array(heroImages.length - 1).fill(false)]);
+
+  // Preload the first image on mount
   useEffect(() => {
+    const img = new window.Image();
+    img.src = heroImages[0];
+    img.onload = () => {
+      setLoadedImages((prev) => {
+        const updated = [...prev];
+        updated[0] = true;
+        return updated;
+      });
+    };
+  }, []);
+
+  // Preload the next image in the sequence
+  useEffect(() => {
+    const nextIndex = (heroIndex + 1) % heroImages.length;
+    if (!loadedImages[nextIndex]) {
+      const img = new window.Image();
+      img.src = heroImages[nextIndex];
+      img.onload = () => {
+        setLoadedImages((prev) => {
+          const updated = [...prev];
+          updated[nextIndex] = true;
+          return updated;
+        });
+      };
+    }
     const interval = setInterval(() => {
       setHeroIndex((prev) => (prev + 1) % heroImages.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [heroIndex, loadedImages]);
   // --- END HERO IMAGE FADE ---
 
   const targetAmount = 82000;
@@ -116,7 +144,7 @@ export default function Home() {
             src={src}
             alt="hero"
             loading="lazy"
-            className={`hero-fade-image${heroIndex === idx ? ' visible' : ''}`}
+            className={`hero-fade-image${heroIndex === idx && loadedImages[idx] ? ' visible' : ''}`}
             style={{
               position: 'absolute',
               top: 0,
@@ -125,8 +153,9 @@ export default function Home() {
               height: '100%',
               objectFit: 'cover',
               zIndex: 0,
-              opacity: heroIndex === idx ? 1 : 0,
+              opacity: heroIndex === idx && loadedImages[idx] ? 1 : 0,
               transition: 'opacity 1.2s ease-in-out',
+              background: '#e0e0e0', // fallback background
             }}
           />
         ))}

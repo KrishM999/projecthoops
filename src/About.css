@@ -80,6 +80,25 @@
     }
 }
 
+@media (max-width: 600px) {
+    .about-container {
+        padding: 0.5rem;
+        min-height: 80vh;
+    }
+    .heading-primary {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+    .heading-secondary {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+    .paragraph {
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
+    }
+}
+
 /* Card Styles */
 .card {
     background: #ffffff;

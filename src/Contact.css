@@ -48,3 +48,27 @@
     background-color: #2e35d3;
   }
   
+  @media (max-width: 600px) {
+    .contact-container {
+      padding: 60px 4px 30px 4px;
+      max-width: 98vw;
+    }
+    .contact-container h1 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+    .contact-container p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      font-size: 0.95rem;
+      padding: 10px;
+    }
+    .contact-form button {
+      font-size: 1rem;
+      padding: 10px;
+    }
+  }
+  

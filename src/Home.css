@@ -363,8 +363,7 @@ body {
     width: 100%;
   }
   .hero-fade-image {
-    min-height: 140px;
-    max-height: 40vw;
+    min-height: 220px;
     width: 100vw;
     max-width: 100vw;
     height: auto;

@@ -70,46 +70,50 @@
 }
 @media (max-width: 600px) {
   .header {
-    height: 56px;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0 4px;
+    height: 64px;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 8px;
   }
   .header-logo .logo {
-    height: 36px;
+    height: 44px;
   }
   .header-nav {
-    width: 100%;
+    width: 100vw;
   }
   .nav-links {
     flex-direction: column;
     gap: 0;
-    width: 100%;
-    background: #fff;
-    position: absolute;
-    top: 56px;
+    width: 100vw;
+    background: rgba(255,255,255,0.98);
+    position: fixed;
+    top: 64px;
     left: 0;
     display: none;
+    z-index: 1200;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   }
   .nav-links.open {
     display: flex;
   }
   .nav-links li a {
-    font-size: 14px;
-    padding: 12px 0;
-    width: 100%;
+    font-size: 1.2rem;
+    padding: 18px 0;
+    width: 100vw;
     display: block;
     text-align: left;
+    border-bottom: 1px solid #eee;
   }
   .menu-toggle {
     display: block;
     background: none;
     border: none;
-    font-size: 2rem;
+    font-size: 2.5rem;
     position: absolute;
-    right: 10px;
-    top: 10px;
-    z-index: 1100;
+    right: 16px;
+    top: 12px;
+    z-index: 1300;
+    color: #333;
   }
 }
 .menu-toggle {

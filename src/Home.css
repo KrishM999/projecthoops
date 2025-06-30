@@ -356,11 +356,17 @@ body {
   .button-wrapper {
     flex-direction: column;
     gap: 10px;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    display: flex;
   }
   .signup-btn {
     font-size: 0.95rem;
     padding: 10px 12px;
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
+    display: block;
   }
   .hero-fade-image {
     min-height: 220px;

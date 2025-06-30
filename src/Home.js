@@ -5,19 +5,19 @@ import { Instagram } from "lucide-react";
 
 // Preload images for faster hero image display
 const heroImages = [
-  "/KEV_6811.jpg",
-  "/KEV_6841.jpg",
-  "/KEV_6901.jpg",
-  "/KEV_6854.jpg",
-  "/KEV_6934.jpg",
-  "/KEV_6963.jpg",
-  "/KEV_6995.jpg",
-  "/KEV_7007.jpg",
-  "/KEV_7054.jpg",
-  "/KEV_7079.jpg",
-  "/KEV_7148.jpg",
-  "/KEV_7242.jpg",
-  "/KEV_7243.jpg"
+  `${process.env.PUBLIC_URL}/KEV_6811.jpg`,
+  `${process.env.PUBLIC_URL}/KEV_6841.jpg`,
+  `${process.env.PUBLIC_URL}/KEV_6901.jpg`,
+  `${process.env.PUBLIC_URL}/KEV_6854.jpg`,
+  `${process.env.PUBLIC_URL}/KEV_6934.jpg`,
+  `${process.env.PUBLIC_URL}/KEV_6963.jpg`,
+  `${process.env.PUBLIC_URL}/KEV_6995.jpg`,
+  `${process.env.PUBLIC_URL}/KEV_7007.jpg`,
+  `${process.env.PUBLIC_URL}/KEV_7054.jpg`,
+  `${process.env.PUBLIC_URL}/KEV_7079.jpg`,
+  `${process.env.PUBLIC_URL}/KEV_7148.jpg`,
+  `${process.env.PUBLIC_URL}/KEV_7242.jpg`,
+  `${process.env.PUBLIC_URL}/KEV_7243.jpg`,
 ];
 heroImages.forEach((src) => {
   const img = new window.Image();

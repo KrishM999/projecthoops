@@ -1,10 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
-import { Instagram } from "lucide-react";
+import { Instagram, ArrowRight, Users, Trophy, Target, Heart } from "lucide-react";
 
-// Preload images for faster hero image display
+// Hero images including the new provided photos
 const heroImages = [
+  "/images/IMG_5724.JPG",
+  "/images/IMG_5726.JPG", 
+  "/images/IMG_5727.JPG",
+  "/images/IMG_5728.JPG",
   "/images/KEV_6811-min.jpg",
   "/images/KEV_6841-min.jpg",
   "/images/KEV_6901-min.jpg",
@@ -62,7 +66,7 @@ export default function Home() {
     }
     const interval = setInterval(() => {
       setHeroIndex((prev) => (prev + 1) % heroImages.length);
-    }, 5000);
+    }, 4000);
     return () => clearInterval(interval);
   }, [heroIndex, loadedImages]);
   // --- END HERO IMAGE FADE ---
@@ -105,7 +109,7 @@ export default function Home() {
   useEffect(() => {
     if (isVisible) {
       let start = null;
-      const duration = 2800; // Changing comments with a 2.8 second delay for smoother effect
+      const duration = 2800;
       const startAmount = 0;
       const endAmount = targetAmount;
 
@@ -136,13 +140,14 @@ export default function Home() {
 
   return (
     <div style={containerStyle}>
+      {/* Hero Section with Dark Overlay */}
       <div className="hero-container" style={{position: 'relative', height: '100vh'}}>
         {/* Cross-fade hero images */}
         {heroImages.map((src, idx) => (
           <img
             key={src}
             src={src}
-            alt="hero"
+            alt="Project Hoops Basketball Tournament"
             loading="lazy"
             className={`hero-fade-image${heroIndex === idx && loadedImages[idx] ? ' visible' : ''}`}
             style={{
@@ -154,38 +159,70 @@ export default function Home() {
               objectFit: 'cover',
               zIndex: 0,
               opacity: heroIndex === idx && loadedImages[idx] ? 1 : 0,
-              transition: 'opacity 1.2s ease-in-out',
-              background: '#e0e0e0', // fallback background
+              transition: 'opacity 1.5s ease-in-out',
+              background: '#1a1a1a',
             }}
           />
         ))}
-        <div style={{position: 'relative', zIndex: 1, width: '100%'}}>
-          <h1 className="hero-heading">
+        
+        {/* Dark overlay for better text readability */}
+        <div className="hero-overlay"></div>
+        
+        <div className="hero-content">
+          <h1 className="hero-heading animate-fade-in">
             Project Hoops is a community-focused nonprofit.
           </h1>
 
-          <p className="hero-subtext">
+          <p className="hero-subtext animate-fade-in-delay">
             We organize annual basketball tournaments to unite players and promote youth empowerment across the Bay Area.
           </p>
 
-          <div className="button-wrapper">
+          <div className="button-wrapper animate-fade-in-delay-2">
             <Link to="/signup">
-              <button className="signup-btn">
-                Sign Up Now <span className="ml-2">→</span>
+              <button className="signup-btn modern-btn">
+                Sign Up Now <ArrowRight className="btn-icon" />
               </button>
             </Link>
             <a href="https://www.gofundme.com/f/help-vt-seva-provide-for-unprivileged-kids?utm_campaign=natman_sharesheet_dash&utm_medium=customer&utm_source=copy_link&attribution_id=sl:f1817a51-c678-48c6-b06f-6e85d4d302b4" target="_blank" rel="noopener noreferrer">
-              <button className="signup-btn" style={{ marginLeft: '12px' }}>
-                Support Us
+              <button className="signup-btn modern-btn secondary">
+                Support Us <Heart className="btn-icon" />
               </button>
             </a>
           </div>
         </div>
       </div>
 
-      
+      {/* Our Mission Section */}
+      <section className="mission-section">
+        <div className="mission-container">
+          <h2 className="section-title">Our Mission</h2>
+          <div className="mission-grid">
+            <div className="mission-card">
+              <div className="mission-icon">
+                <Users size={32} />
+              </div>
+              <h3>Community & Impact</h3>
+              <p>Uniting diverse players through basketball to create positive social change and foster community spirit.</p>
+            </div>
+            <div className="mission-card">
+              <div className="mission-icon">
+                <Target size={32} />
+              </div>
+              <h3>Youth Empowerment</h3>
+              <p>Providing opportunities for young athletes to develop skills, build confidence, and achieve excellence on and off the court.</p>
+            </div>
+            <div className="mission-card">
+              <div className="mission-icon">
+                <Trophy size={32} />
+              </div>
+              <h3>Growth & Development</h3>
+              <p>Promoting competitive spirit, sportsmanship, and teamwork to nurture holistic growth in every participant.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      {/* Interactive Fundraising Slider */}
+      {/* Interactive Fundraising Section */}
       <section id="fundraising-section" className="fundraising-section">
         <div className="fundraising-card">
           <div className="p-8">
@@ -220,7 +257,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Stats Grid */}
+              {/* Impact Metrics */}
               <div className="stats-grid">
                 <div className="stat-card stat-blue stat-large">
                   <div className="stat-value stat-value-large">225+</div>
@@ -231,12 +268,10 @@ export default function Home() {
                   <div className="stat-label stat-label-large">Tournaments Held</div>
                 </div>
                 <div className="stat-card stat-green stat-large">
-                  <div className="stat-value stat-value-large">400+ </div>
+                  <div className="stat-value stat-value-large">400+</div>
                   <div className="stat-label stat-label-large">Players Participated</div>
                 </div>
               </div>
-
-
 
               {/* Call to Action */}
               <div style={{ maxWidth: '500px', margin: '0 auto', paddingTop: '2rem' }}>
@@ -258,8 +293,47 @@ export default function Home() {
             </div>
           </div>
         </div>
-        
+      </section>
+
+      {/* Why VT SEVA Section */}
+      <section className="vt-seva-section">
+        <div className="vt-seva-container">
+          <h2 className="section-title">Why VT SEVA?</h2>
+          <p className="vt-seva-description">
+            VT SEVA is our partner organization dedicated to providing education, housing, and essential resources 
+            to underprivileged children. Through Project Hoops, we channel the spirit of basketball into meaningful 
+            social impact, creating opportunities for youth both on and off the court.
+          </p>
+          <a 
+            href="https://www.vtsworld.org" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="vt-seva-link"
+          >
+            Learn More About VT SEVA <ArrowRight className="btn-icon" />
+          </a>
+        </div>
+      </section>
+
+      {/* Photo Carousel Section */}
+      <section className="photo-carousel-section">
+        <div className="carousel-container">
+          <h2 className="section-title">Tournament Highlights</h2>
+          <div className="photo-grid">
+            {heroImages.slice(0, 6).map((image, index) => (
+              <div key={index} className="photo-card">
+                <img src={image} alt={`Tournament moment ${index + 1}`} className="carousel-image" />
+                <div className="photo-overlay">
+                  <p className="photo-caption">Tournament Action</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
     </div>
   );
 }
+
+
+

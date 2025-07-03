@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { User, Mail, Users, Trophy, CheckCircle, AlertCircle } from "lucide-react";
 import "./SignUpForm.css"; 
 
 const errorLog = [];
@@ -10,6 +11,8 @@ const SignUpForm = () => {
     team: "",
     division: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', or null
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,6 +21,8 @@ const SignUpForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
 
     try {
       const formDataToSend = new URLSearchParams();
@@ -36,73 +41,139 @@ const SignUpForm = () => {
         }
       );
 
-      // change this to do a better one
-      alert("Your sign up has been recorded!");
+      setSubmitStatus('success');
       setFormData({ name: "", email: "", team: "", division: "" });
       
     } catch (error) {
       console.error("Error during form submission:", error);
       errorLog.push(error.message);
-      alert("There was an error. Please try again.");
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   return (
-    <form className="signup-form" onSubmit={handleSubmit}>
-      <p style={{ textAlign: "center", padding: "20px" }}>
-        We are currently accepting sign ups for the 2025 Project Hoops Tournament 
-      </p>
-      <label>
-        Name:
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-          placeholder="Enter your name"
-        />
-      </label>
+    <div className="signup-container">
+      <div className="signup-header">
+        <h1 className="signup-title">Join Project Hoops 2025</h1>
+        <p className="signup-subtitle">
+          We are currently accepting sign ups for the 2025 Project Hoops Tournament. 
+          Join us for an exciting basketball experience that brings communities together!
+        </p>
+      </div>
 
-      <label>
-        Email:
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-          placeholder="Enter your email"
-        />
-      </label>
+      <form className="signup-form" onSubmit={handleSubmit}>
+        {submitStatus === 'success' && (
+          <div className="status-message success">
+            <CheckCircle size={20} />
+            <span>Your sign up has been recorded successfully!</span>
+          </div>
+        )}
 
-      <label>
-        Team Name:
-        <input
-          type="text"
-          name="team"
-          value={formData.team}
-          onChange={handleChange}
-          placeholder="Enter your team name"
-        />
-      </label>
+        {submitStatus === 'error' && (
+          <div className="status-message error">
+            <AlertCircle size={20} />
+            <span>There was an error. Please try again.</span>
+          </div>
+        )}
 
-      <label>
-        Division:
-        <select
-          name="division"
-          value={formData.division}
-          onChange={handleChange}
-          required
+        <div className="form-group">
+          <label className="form-label">
+            <User className="form-icon" size={20} />
+            Name *
+          </label>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            placeholder="Enter your full name"
+            className="form-input"
+          />
+        </div>
+
+        <div className="form-group">
+          <label className="form-label">
+            <Mail className="form-icon" size={20} />
+            Email *
+          </label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            placeholder="Enter your email address"
+            className="form-input"
+          />
+        </div>
+
+        <div className="form-group">
+          <label className="form-label">
+            <Users className="form-icon" size={20} />
+            Team Name *
+          </label>
+          <input
+            type="text"
+            name="team"
+            value={formData.team}
+            onChange={handleChange}
+            required
+            placeholder="Enter your team name"
+            className="form-input"
+          />
+        </div>
+
+        <div className="form-group">
+          <label className="form-label">
+            <Trophy className="form-icon" size={20} />
+            Division *
+          </label>
+          <select
+            name="division"
+            value={formData.division}
+            onChange={handleChange}
+            required
+            className="form-select"
+          >
+            <option value="">Select your division</option>
+            <option value="Division I (Competitive)">Division I (Competitive)</option>
+            <option value="Division II (Recreational)">Division II (Recreational)</option>
+          </select>
+        </div>
+
+        <button 
+          type="submit" 
+          className={`submit-btn ${isSubmitting ? 'submitting' : ''}`}
+          disabled={isSubmitting}
         >
-          <option value="">Select your division</option>
-          <option value="Division I (Competitive)">Division I (Competitive)</option>
-          <option value="Division II (Recreational)">Division II (Recreational)</option>
-        </select>
-      </label>
-      <button type="submit">Sign Up</button>
-    </form>
+          {isSubmitting ? (
+            <>
+              <div className="spinner"></div>
+              Submitting...
+            </>
+          ) : (
+            <>
+              Sign Up Now
+              <CheckCircle className="btn-icon" size={20} />
+            </>
+          )}
+        </button>
+
+        <div className="form-footer">
+          <p className="footer-text">
+            * Required fields. By signing up, you agree to participate in the Project Hoops 2025 tournament 
+            and receive updates about the event.
+          </p>
+        </div>
+      </form>
+    </div>
   );
 };
 
 export default SignUpForm;
+
+
+

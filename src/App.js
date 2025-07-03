@@ -1,20 +1,20 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, generatePath } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from './Home';
 import About from './About';
 import Contact from './Contact';
 import SignUpForm from './SignUpForm';
 import Header from './Header';
+import Footer from './Footer';
 import SponsorUs from './SponsorUs';
 import { Analytics } from "@vercel/analytics/react";
-
 
 function App() {
   return (
     <Router>
-      <div>
+      <div className="app">
         <Header /> 
-        <main style={{ paddingTop: "100px", textAlign: "center" }}>
+        <main className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -23,6 +23,7 @@ function App() {
             <Route path="/sponsor-us" element={<SponsorUs />} />
           </Routes>
         </main>
+        <Footer />
         <Analytics />
       </div>
     </Router>
@@ -30,3 +31,4 @@ function App() {
 }
 
 export default App;
+

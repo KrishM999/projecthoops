@@ -4,9 +4,28 @@ import { Github, Linkedin, Mail } from 'lucide-react';
 
 const teamMembers = [
   {
+    name: 'Aashna Bhatia',
+    role: 'President',
+    image: '/images/AashnaPH.JPEG',
+    social: {
+      github: '#',
+      linkedin: '#',
+      email: '#',
+    },
+  },
+  {
+    name: 'Aryan Baldua',
+    role: 'Founder',
+    image: '/images/KrishPH.jpg',
+    social: {
+      github: '#',
+      linkedin: '#',
+      email: '#',
+    },
+  },
+  {
     name: 'Yahia Kortam',
-    role: 'No role yet',
-    description: 'No description yet, but description would show here.',
+    role: 'Engineer/Marketing',
     image: '/images/YahiaPH.jpg',
     social: {
       github: '#',
@@ -15,8 +34,8 @@ const teamMembers = [
     },
   },
   {
-    name: 'Amulya',
-    role: 'No role yet',
+    name: 'Amulya Sanghani',
+    role: 'Activities Lead',
     description: 'No description yet, but description would show here.',
     image: '/images/AmulyaPH.jpeg',
     social: {
@@ -26,19 +45,8 @@ const teamMembers = [
     },
   },
   {
-    name: 'Krish',
-    role: 'No role yet',
-    description: 'No description yet, but description would show here.',
-    image: '/images/KrishPH.jpg',
-    social: {
-      github: '#',
-      linkedin: '#',
-      email: '#',
-    },
-  },
-  {
-    name: 'Bretton',
-    role: 'No role yet',
+    name: 'Bretton Lam',
+    role: 'Pitch Advisor',
     description: 'No description yet, but description would show here.',
     image: '/images/BrettonPH.PNG',
     social: {
@@ -48,10 +56,20 @@ const teamMembers = [
     },
   },
   {
-    name: 'Eesha',
-    role: 'No role yet',
+    name: 'Eesha Muttineni',
+    role: 'Volunteer Coordination',
     description: 'No description yet, but description would show here.',
     image: '/images/EeshaPH.JPEG',
+    social: {
+      github: '#',
+      linkedin: '#',
+      email: '#',
+    },
+  },
+  {
+    name: 'Vedika Baldua',
+    role: 'Marketing',
+    image: '/VedikaPH.jpg',
     social: {
       github: '#',
       linkedin: '#',
@@ -76,18 +94,6 @@ const About = () => {
             <img src={member.image} alt={member.name} className="team-member-image" />
             <h3 className="team-member-name">{member.name}</h3>
             <p className="team-member-role">{member.role}</p>
-            <p className="team-member-description">{member.description}</p>
-            <div className="team-member-social">
-              <a href={member.social.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <Github size={20} />
-              </a>
-              <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <Linkedin size={20} />
-              </a>
-              <a href={member.social.email} target="_blank" rel="noopener noreferrer" aria-label="Email">
-                <Mail size={20} />
-              </a>
-            </div>
           </div>
         ))}
       </div>

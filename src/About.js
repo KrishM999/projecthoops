@@ -4,10 +4,10 @@ import { Github, Linkedin, Mail } from 'lucide-react';
 
 const teamMembers = [
   {
-    name: 'John Doe',
-    role: 'Founder & CEO',
-    description: 'Passionate about youth development and basketball, John founded Project Hoops to create a positive impact in the community.',
-    image: 'https://via.placeholder.com/150/0000FF/FFFFFF?text=John+Doe',
+    name: 'Yahia Kortam',
+    role: 'No role yet',
+    description: 'No description yet, but description would show here.',
+    image: '/images/YahiaPH.jpg',
     social: {
       github: '#',
       linkedin: '#',
@@ -15,10 +15,10 @@ const teamMembers = [
     },
   },
   {
-    name: 'Jane Smith',
-    role: 'Operations Lead',
-    description: 'With a background in event management, Jane ensures smooth operations for all Project Hoops tournaments and initiatives.',
-    image: 'https://via.placeholder.com/150/FF0000/FFFFFF?text=Jane+Smith',
+    name: 'Amulya',
+    role: 'No role yet',
+    description: 'No description yet, but description would show here.',
+    image: '/images/AmulyaPH.jpeg',
     social: {
       github: '#',
       linkedin: '#',
@@ -26,10 +26,10 @@ const teamMembers = [
     },
   },
   {
-    name: 'Peter Jones',
-    role: 'Community Outreach',
-    description: 'Peter is dedicated to building strong community partnerships and expanding Project Hoops reach to more youth.',
-    image: 'https://via.placeholder.com/150/008000/FFFFFF?text=Peter+Jones',
+    name: 'Krish',
+    role: 'No role yet',
+    description: 'No description yet, but description would show here.',
+    image: '/images/KrishPH.jpg',
     social: {
       github: '#',
       linkedin: '#',
@@ -37,10 +37,21 @@ const teamMembers = [
     },
   },
   {
-    name: 'Alice Brown',
-    role: 'Marketing & Communications',
-    description: 'Alice handles all communications and marketing efforts, ensuring Project Hoops message reaches a wider audience.',
-    image: 'https://via.placeholder.com/150/FFFF00/000000?text=Alice+Brown',
+    name: 'Bretton',
+    role: 'No role yet',
+    description: 'No description yet, but description would show here.',
+    image: '/images/BrettonPH.PNG',
+    social: {
+      github: '#',
+      linkedin: '#',
+      email: '#',
+    },
+  },
+  {
+    name: 'Eesha',
+    role: 'No role yet',
+    description: 'No description yet, but description would show here.',
+    image: '/images/EeshaPH.JPEG',
     social: {
       github: '#',
       linkedin: '#',

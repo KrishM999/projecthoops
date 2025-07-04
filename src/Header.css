@@ -198,6 +198,7 @@
   
   .header-container {
     padding: 0 1rem;
+    position: relative;
   }
   
   .logo {
@@ -214,6 +215,11 @@
   
   .menu-toggle {
     display: block;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1100;
   }
   
   .header-nav {

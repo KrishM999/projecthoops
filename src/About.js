@@ -16,7 +16,7 @@ const teamMembers = [
   {
     name: 'Aryan Baldua',
     role: 'Founder',
-    image: '/images/KrishPH.jpg',
+    image: '/images/AryanPH.jpg',
     social: {
       github: '#',
       linkedin: '#',
@@ -25,7 +25,7 @@ const teamMembers = [
   },
   {
     name: 'Yahia Kortam',
-    role: 'Engineer/Marketing',
+    role: 'Media & Web Engineer',
     image: '/images/YahiaPH.jpg',
     social: {
       github: '#',
@@ -34,8 +34,18 @@ const teamMembers = [
     },
   },
   {
+    name: 'Krish Maheshwari',
+    role: 'Web Engineer',
+    image: '/images/KrishPH.jpg',
+    social: {
+      github: '#',
+      linkedin: '#',
+      email: '#',
+    },
+  },
+  {
     name: 'Amulya Sanghani',
-    role: 'Activities Lead',
+    role: 'Events & Partnerships Manager',
     description: 'No description yet, but description would show here.',
     image: '/images/AmulyaPH.jpeg',
     social: {
@@ -68,8 +78,18 @@ const teamMembers = [
   },
   {
     name: 'Vedika Baldua',
-    role: 'Marketing',
+    role: 'Digital Media Coordinator',
     image: '/VedikaPH.jpg',
+    social: {
+      github: '#',
+      linkedin: '#',
+      email: '#',
+    },
+  },
+  {
+    name: 'Saanvi Gunukula',
+    role: 'Finance & Budgeting Analyst',
+    image: '/images/SaanviPH.jpg',
     social: {
       github: '#',
       linkedin: '#',

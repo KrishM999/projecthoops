@@ -96,6 +96,16 @@ const teamMembers = [
       email: '#',
     },
   },
+  {
+    name: 'Maya Phadke',
+    role: 'Finance Coordinator',
+    image: '/images/MayaPH.jpg',
+    social: {
+      github: '#',
+      linkedin: '#',
+      email: '#',
+    },
+  },
 ];
 
 const About = () => {

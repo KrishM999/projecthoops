@@ -39,7 +39,7 @@ function Footer() {
               <Link to="/" className="footer-link">Home</Link>
               <Link to="/about" className="footer-link">About</Link>
               <Link to="/contact" className="footer-link">Contact</Link>
-              <Link to="/signup" className="footer-link">Sign Up</Link>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_N4PEKXjJ5XWt9ur9Xw-BgCejwxKssfZdEb2BSdfI2U4wJw/viewform" target="_blank" rel="noopener noreferrer" className="footer-link">Sign Up</a>
               <Link to="/sponsor-us" className="footer-link">Sponsor Us</Link>
             </nav>
           </div>

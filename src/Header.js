@@ -72,13 +72,15 @@ function Header() {
               </Link>
             </li>
             <li>
-              <Link 
-                to="/signup" 
-                className={`signup-nav-btn ${location.pathname === '/signup' ? 'active' : ''}`}
+              <a 
+                href="https://docs.google.com/forms/d/e/1FAIpQLSd_N4PEKXjJ5XWt9ur9Xw-BgCejwxKssfZdEb2BSdfI2U4wJw/viewform" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className={`signup-nav-btn${location.pathname === '/signup' ? ' active' : ''}`}
                 onClick={() => setMenuOpen(false)}
               >
                 Sign Up
-              </Link>
+              </a>
             </li>
             <li>
               <Link 

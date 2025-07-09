@@ -289,11 +289,11 @@ export default function Home() {
           </p>
 
           <div className="button-wrapper animate-fade-in-delay-2">
-            <Link to="/signup">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_N4PEKXjJ5XWt9ur9Xw-BgCejwxKssfZdEb2BSdfI2U4wJw/viewform" target="_blank" rel="noopener noreferrer">
               <button className="signup-btn modern-btn">
                 Sign Up Now <ArrowRight className="btn-icon" />
               </button>
-            </Link>
+            </a>
             <a href="https://www.gofundme.com/f/help-vt-seva-provide-for-unprivileged-kids?utm_campaign=natman_sharesheet_dash&utm_medium=customer&utm_source=copy_link&attribution_id=sl:f1817a51-c678-48c6-b06f-6e85d4d302b4" target="_blank" rel="noopener noreferrer">
               <button className="signup-btn modern-btn secondary">
                 Support Us <Heart className="btn-icon" />

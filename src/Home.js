@@ -174,6 +174,7 @@ export default function Home() {
         const script = document.createElement('script');
         script.src = 'https://www.instagram.com/embed.js';
         script.async = true;
+        script.crossOrigin = 'anonymous';
         script.onload = () => {
           if (window.instgrm) {
             window.instgrm.Embeds.process();
@@ -181,7 +182,9 @@ export default function Home() {
           }
         };
         script.onerror = () => {
-          console.warn('Instagram embed script failed to load');
+          console.warn('Instagram embed script failed to load due to CSP restrictions');
+          // Show fallback content instead of embeds
+          setEmbedsLoaded(true);
           resolve();
         };
         document.body.appendChild(script);
@@ -437,21 +440,39 @@ export default function Home() {
                     style={{ minHeight: '400px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                   >
                     {visibleEmbeds.includes(index.toString()) ? (
-                      <blockquote
-                        className="instagram-media"
-                        data-instgrm-permalink={item.url}
-                        data-instgrm-version="14"
-                        style={{
-                          background: '#fff',
-                          borderRadius: '1rem',
-                          margin: '0',
-                          maxWidth: '100%',
-                          minWidth: '100%',
-                          width: '100%',
-                          boxShadow: 'none'
-                        }}
-                        aria-label={item.caption}
-                      ></blockquote>
+                      window.instgrm ? (
+                        <blockquote
+                          className="instagram-media"
+                          data-instgrm-permalink={item.url}
+                          data-instgrm-version="14"
+                          style={{
+                            background: '#fff',
+                            borderRadius: '1rem',
+                            margin: '0',
+                            maxWidth: '100%',
+                            minWidth: '100%',
+                            width: '100%',
+                            boxShadow: 'none'
+                          }}
+                          aria-label={item.caption}
+                        ></blockquote>
+                      ) : (
+                        <div className="embed-fallback">
+                          <div className="fallback-content">
+                            <div className="fallback-icon">📸</div>
+                            <h3>Tournament {item.caption}</h3>
+                            <p>View highlights on Instagram</p>
+                            <a 
+                              href={item.url} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="fallback-link"
+                            >
+                              Open Instagram Post
+                            </a>
+                          </div>
+                        </div>
+                      )
                     ) : (
                       <div className="embed-placeholder">
                         <div className="placeholder-content">

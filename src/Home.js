@@ -28,6 +28,26 @@ const heroImages = [
 const preloadImg = new window.Image();
 preloadImg.src = heroImages[0];
 
+// Add highlights array after heroImages
+const highlights = [
+  {
+    url: "https://www.instagram.com/reel/C-obieEvexS/",
+    caption: "2024"
+  },
+  {
+    url: "https://www.instagram.com/reel/Cv3erCkAxeM/",
+    caption: "2023"
+  },
+  {
+    url: "https://www.instagram.com/reel/ChlCn7hgpqY/",
+    caption: "2022"
+  },
+  {
+    url: "https://www.instagram.com/reel/CVeTIa7pBeE/",
+    caption: "2021"
+  }
+];
+
 export default function Home() {
   const [raisedAmount, setRaisedAmount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
@@ -137,6 +157,94 @@ export default function Home() {
   }, [isVisible, targetAmount]);
 
   const progressPercentage = (raisedAmount / goalAmount) * 100;
+
+  const highlightsRef = useRef(null);
+  const [embedsLoaded, setEmbedsLoaded] = useState(false);
+  const [visibleEmbeds, setVisibleEmbeds] = useState([]);
+
+  // Optimized Instagram embed loading
+  useEffect(() => {
+    const loadInstagramScript = () => {
+      return new Promise((resolve) => {
+        if (window.instgrm) {
+          resolve();
+          return;
+        }
+
+        const script = document.createElement('script');
+        script.src = 'https://www.instagram.com/embed.js';
+        script.async = true;
+        script.onload = () => {
+          if (window.instgrm) {
+            window.instgrm.Embeds.process();
+            resolve();
+          }
+        };
+        script.onerror = () => {
+          console.warn('Instagram embed script failed to load');
+          resolve();
+        };
+        document.body.appendChild(script);
+      });
+    };
+
+    const processEmbeds = async () => {
+      await loadInstagramScript();
+      if (window.instgrm && highlightsRef.current) {
+        // Process embeds with a small delay to ensure DOM is ready
+        setTimeout(() => {
+          window.instgrm.Embeds.process();
+          setEmbedsLoaded(true);
+        }, 100);
+      }
+    };
+
+    // Only load embeds when section is visible
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !embedsLoaded) {
+            processEmbeds();
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '100px' }
+    );
+
+    if (highlightsRef.current) {
+      observer.observe(highlightsRef.current);
+    }
+
+    return () => {
+      if (highlightsRef.current) {
+        observer.unobserve(highlightsRef.current);
+      }
+    };
+  }, [embedsLoaded]);
+
+  // Lazy load individual embeds
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const embedId = entry.target.dataset.embedId;
+            setVisibleEmbeds(prev => [...new Set([...prev, embedId])]);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '50px' }
+    );
+
+    const embedElements = highlightsRef.current?.querySelectorAll('.embed-trigger');
+    embedElements?.forEach(el => observer.observe(el));
+
+    return () => {
+      embedElements?.forEach(el => observer.unobserve(el));
+    };
+  }, []);
 
   return (
     <div style={containerStyle}>
@@ -315,22 +423,55 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Photo Carousel Section */}
-      <section className="photo-carousel-section">
-        <div className="carousel-container">
+      {/* Tournament Highlights Section */}
+      <section className="tournament-highlights-section" ref={highlightsRef}>
+        <div className="highlights-container">
           <h2 className="section-title">Tournament Highlights</h2>
-          <div className="photo-grid">
-            {heroImages.slice(0, 6).map((image, index) => (
-              <div key={index} className="photo-card">
-                <img src={image} alt={`Tournament moment ${index + 1}`} className="carousel-image" />
-                <div className="photo-overlay">
-                  <p className="photo-caption">Tournament Action</p>
+          <div className="highlights-grid">
+            {highlights.map((item, index) => (
+              <div className="highlight-card" key={item.url}>
+                <div className="highlight-embed-wrapper">
+                  <div 
+                    className="embed-trigger" 
+                    data-embed-id={index}
+                    style={{ minHeight: '400px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                  >
+                    {visibleEmbeds.includes(index.toString()) ? (
+                      <blockquote
+                        className="instagram-media"
+                        data-instgrm-permalink={item.url}
+                        data-instgrm-version="14"
+                        style={{
+                          background: '#fff',
+                          borderRadius: '1rem',
+                          margin: '0',
+                          maxWidth: '100%',
+                          minWidth: '100%',
+                          width: '100%',
+                          boxShadow: 'none'
+                        }}
+                        aria-label={item.caption}
+                      ></blockquote>
+                    ) : (
+                      <div className="embed-placeholder">
+                        <div className="placeholder-content">
+                          <div className="placeholder-icon">📸</div>
+                          <p>Loading Instagram post...</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div className="highlight-content">
+                  <div className="highlight-year">{item.caption}</div>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      
     </div>
   );
 }

@@ -662,3 +662,261 @@ body {
   }
 }
 
+/* Tournament Highlights Section - Modern Design */
+.tournament-highlights-section {
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.tournament-highlights-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="%23ffffff" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="%23ffffff" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  pointer-events: none;
+}
+
+.highlights-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.highlights-subtitle {
+  font-size: 1.25rem;
+  color: #64748b;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.highlight-card {
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(226, 232, 240, 0.5);
+  position: relative;
+}
+
+.highlight-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.highlight-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
+.highlight-card:hover::before {
+  opacity: 1;
+}
+
+.highlight-embed-wrapper {
+  position: relative;
+  overflow: hidden;
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+  min-height: 400px;
+}
+
+.highlight-embed-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.highlight-card:hover .highlight-embed-wrapper::after {
+  opacity: 1;
+}
+
+.highlight-content {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.highlight-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.highlight-year {
+  display: inline-block;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3);
+  transition: all 0.3s ease;
+}
+
+.highlight-card:hover .highlight-year {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+}
+
+/* Instagram embed styling improvements */
+.highlight-embed-wrapper .instagram-media {
+  border-radius: 16px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+  transition: transform 0.3s ease;
+  opacity: 0;
+  animation: fadeInEmbed 0.5s ease-out forwards;
+}
+
+@keyframes fadeInEmbed {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.highlight-card:hover .highlight-embed-wrapper .instagram-media {
+  transform: scale(1.02);
+}
+
+/* Loading placeholder styles */
+.embed-placeholder {
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed rgba(59, 130, 246, 0.2);
+  transition: all 0.3s ease;
+}
+
+.embed-placeholder:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+  background: linear-gradient(135deg, #f1f5f9 0%, #dbeafe 100%);
+}
+
+.placeholder-content {
+  text-align: center;
+  color: #64748b;
+}
+
+.placeholder-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.7;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.placeholder-content p {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+  color: #64748b;
+}
+
+/* Embed trigger container */
+.embed-trigger {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+/* Responsive design for highlights */
+@media (max-width: 768px) {
+  .tournament-highlights-section {
+    padding: 4rem 1rem;
+  }
+  
+  .highlights-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .highlight-card {
+    border-radius: 20px;
+  }
+  
+  .highlight-embed-wrapper {
+    padding: 1rem;
+  }
+  
+  .highlight-content {
+    padding: 1.25rem;
+  }
+  
+  .highlight-title {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tournament-highlights-section {
+    padding: 3rem 0.5rem;
+  }
+  
+  .highlights-subtitle {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+  }
+  
+  .highlight-embed-wrapper {
+    padding: 0.75rem;
+  }
+  
+  .highlight-content {
+    padding: 1rem;
+  }
+}
+

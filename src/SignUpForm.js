@@ -33,11 +33,11 @@ const SignUpForm = () => {
       formDataToSend.append('Division', formData.division);
 
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbwQbfoxpRKqfPVfZFvoWA2JLTV-SzvLyGSR2JFaZcgeSWTeos8b0dw6XlD0qX8pZZxT7Q/exec", 
+        "https://script.google.com/macros/s/AKfycbyyxlNgsmoG8cjRXcBgkh9u8K0krFGY95Kukk2kHmZA18__ll8Q9MhAd__s2D1GekwT/exec",
         {
           method: "POST",
           body: formDataToSend,
-          mode: "no-cors"
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
         }
       );
 

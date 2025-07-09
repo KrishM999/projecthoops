@@ -35,7 +35,7 @@ const teamMembers = [
   },
   {
     name: 'Krish Maheshwari',
-    role: 'Web Engineer',
+    role: 'Sponsor Outreach Head',
     image: '/images/KrishPH.jpg',
     social: {
       github: '#',

@@ -68,30 +68,30 @@ const Contact = () => {
           </div>
         )}
 
-        <input 
-          type="text" 
-          name="name" 
-          placeholder="Your Name" 
-          value={formData.name}
+    <input 
+      type="text" 
+      name="name" 
+      placeholder="Your Name" 
+      value={formData.name}
           onChange={handleChange}
-          required 
-        />
-        <input 
-          type="email" 
-          name="email" 
-          placeholder="Your Email" 
-          value={formData.email}
+      required 
+    />
+    <input 
+      type="email" 
+      name="email" 
+      placeholder="Your Email" 
+      value={formData.email}
           onChange={handleChange}
-          required 
-        />
-        <textarea 
-          name="message" 
-          placeholder="Your Message" 
-          rows="5"
-          value={formData.message}
+      required 
+    />
+    <textarea 
+      name="message" 
+      placeholder="Your Message" 
+      rows="5"
+      value={formData.message}
           onChange={handleChange}
-          required 
-        />
+      required 
+    />
         <button 
           type="submit" 
           className={isSubmitting ? 'submitting' : ''}
@@ -109,7 +109,7 @@ const Contact = () => {
             </>
           )}
         </button>
-      </form>
+</form>
     </div>
   );
 };

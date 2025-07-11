@@ -171,11 +171,11 @@ export default function Home() {
           return;
         }
 
-        const script = document.createElement('script');
-        script.src = 'https://www.instagram.com/embed.js';
-        script.async = true;
+      const script = document.createElement('script');
+      script.src = 'https://www.instagram.com/embed.js';
+      script.async = true;
         script.crossOrigin = 'anonymous';
-        script.onload = () => {
+      script.onload = () => {
           if (window.instgrm) {
             window.instgrm.Embeds.process();
             resolve();
@@ -186,8 +186,8 @@ export default function Home() {
           // Show fallback content instead of embeds
           setEmbedsLoaded(true);
           resolve();
-        };
-        document.body.appendChild(script);
+      };
+      document.body.appendChild(script);
       });
     };
 
@@ -196,7 +196,7 @@ export default function Home() {
       if (window.instgrm && highlightsRef.current) {
         // Process embeds with a small delay to ensure DOM is ready
         setTimeout(() => {
-          window.instgrm.Embeds.process();
+      window.instgrm.Embeds.process();
           setEmbedsLoaded(true);
         }, 100);
       }

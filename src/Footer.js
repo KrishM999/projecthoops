@@ -50,7 +50,7 @@ function Footer() {
             <div className="contact-info">
               <div className="contact-item">
                 <Mail size={18} />
-                <span>projecthoops@vtseva.org</span>
+                <span>projecthoops20@gmail.com</span>
               </div>
               <div className="contact-item">
                 <MapPin size={18} />

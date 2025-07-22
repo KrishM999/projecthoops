@@ -56,7 +56,7 @@ const teamMembers = [
   },
   {
     name: 'Bretton Lam',
-    role: 'Pitch Advisor',
+    role: 'Operations and Logistics Manager',
     description: 'No description yet, but description would show here.',
     image: '/images/BrettonPH.PNG',
     social: {

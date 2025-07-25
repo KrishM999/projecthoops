@@ -49,6 +49,27 @@ const highlights = [
 ];
 
 export default function Home() {
+  // --- COUNTDOWN BANNER ---
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0, isPast: false });
+
+  useEffect(() => {
+    const eventDate = new Date('2025-08-02T08:00:00-07:00'); // PDT timezone
+    function updateCountdown() {
+      const now = new Date();
+      const diff = eventDate - now;
+      let absDiff = Math.abs(diff);
+      const days = Math.floor(absDiff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((absDiff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((absDiff / (1000 * 60)) % 60);
+      const seconds = Math.floor((absDiff / 1000) % 60);
+      setTimeLeft({ days, hours, minutes, seconds, isPast: diff < 0 });
+    }
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+    return () => clearInterval(interval);
+  }, []);
+  // --- END COUNTDOWN BANNER ---
+
   const [raisedAmount, setRaisedAmount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const animationRef = useRef();
@@ -250,7 +271,35 @@ export default function Home() {
   }, []);
 
   return (
-    <div style={containerStyle}>
+    <>
+      {/* Countdown Banner */}
+      <div style={{
+        width: '100%',
+        background: 'linear-gradient(90deg, #ff9800 0%, #ff5722 100%)',
+        color: '#fff',
+        textAlign: 'center',
+        padding: '12px 0',
+        fontWeight: 600,
+        fontSize: '1.15rem',
+        letterSpacing: '0.03em',
+        zIndex: 100,
+        position: 'sticky',
+        top: 0,
+        boxShadow: '0 2px 8px rgba(0,0,0,0.08)'
+      }}>
+        {!timeLeft.isPast ? (
+          <>
+            🏀 Project Hoops Tournament starts in {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s — August 2nd, 2025, 8:00 AM @Piedmont Hills High School!
+          </>
+        ) : (
+          <>
+            🏀 Project Hoops Tournament started {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s ago!
+          </>
+        )}
+      </div>
+      {/* End Countdown Banner */}
+      {/* Main Home Content */}
+      <div style={containerStyle}>
       {/* Hero Section with Dark Overlay */}
       <div className="hero-container" style={{position: 'relative', height: '100vh'}}>
         {/* Cross-fade hero images */}
@@ -494,6 +543,7 @@ export default function Home() {
 
       
     </div>
+    </>
   );
 }
 

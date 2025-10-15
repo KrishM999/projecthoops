@@ -989,3 +989,43 @@ body {
   text-decoration: none;
 }
 
+.banner-notification {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 2rem auto;
+  background: #fff;
+  color: #1e293b;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.08);
+  font-family: 'Inter', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-align: center;
+  padding: 1.25rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: box-shadow 0.2s;
+}
+
+.banner-countdown {
+  color: #2563eb;
+  font-weight: 800;
+  font-size: 1.2em;
+  margin: 0 0.25em;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 600px) {
+  .banner-notification {
+    font-size: 1rem;
+    padding: 1rem 0.5rem;
+    border-radius: 14px;
+  }
+  .banner-countdown {
+    font-size: 1em;
+  }
+}
+

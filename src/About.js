@@ -4,9 +4,9 @@ import { Github, Linkedin, Mail } from 'lucide-react';
 
 const teamMembers = [
   {
-    name: 'Aashna Bhatia',
+    name: 'Vedika Baldua',
     role: 'President',
-    image: '/images/AashnaPH.JPEG',
+    image: '/VedikaPH.jpg',
     social: {
       github: '#',
       linkedin: '#',
@@ -77,9 +77,9 @@ const teamMembers = [
     },
   },
   {
-    name: 'Vedika Baldua',
+    name: 'Aashna Bhatia',
     role: 'Digital Media Coordinator',
-    image: '/VedikaPH.jpg',
+    image: 'images/AashnaPH.JPEG',
     social: {
       github: '#',
       linkedin: '#',

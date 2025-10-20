@@ -12,7 +12,7 @@ function Footer() {
           {/* Logo and Description */}
           <div className="footer-section">
             <div className="footer-logo">
-              <img src="/IMG_6121.png" alt="Project Hoops Logo" className="footer-logo-img" />
+              <img src={process.env.PUBLIC_URL + "/IMG_6121.png"} alt="Project Hoops Logo" className="footer-logo-img" />
               <span className="footer-logo-text">Project Hoops</span>
             </div>
             <p className="footer-description">

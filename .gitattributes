@@ -1,2 +1,4 @@
 *.jpg filter=lfs diff=lfs merge=lfs -text
 *.png filter=lfs diff=lfs merge=lfs -text
+# Exception: Bretton's photo should not use LFS to avoid deployment issues
+public/images/BrettonPH.jpg !filter !diff !merge text

@@ -49,7 +49,7 @@ const teamMembers = [
     name: 'Bretton Lam',
     role: 'Operations and Logistics Manager',
     description: 'No description yet, but description would show here.',
-    image: '/images/BrettonPH.PNG',
+    image: '/images/BrettonPH.jpg',
     social: {
       github: '#',
       linkedin: '#',

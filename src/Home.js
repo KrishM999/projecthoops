@@ -91,7 +91,7 @@ export default function Home() {
   }, [heroIndex, loadedImages]);
   // --- END HERO IMAGE FADE ---
 
-  const targetAmount = 82000;
+  const targetAmount = 94000;
   const goalAmount = 135000;
 
   const containerStyle = {
@@ -375,7 +375,7 @@ export default function Home() {
                   <div className="stat-label stat-label-large">Youth Provided Education, Housing, and Food</div>
                 </div>
                 <div className="stat-card stat-purple stat-large">
-                  <div className="stat-value stat-value-large">4</div>
+                  <div className="stat-value stat-value-large">5</div>
                   <div className="stat-label stat-label-large">Tournaments Held</div>
                 </div>
                 <div className="stat-card stat-green stat-large">

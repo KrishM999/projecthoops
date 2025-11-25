@@ -371,7 +371,7 @@ export default function Home() {
               {/* Impact Metrics */}
               <div className="stats-grid">
                 <div className="stat-card stat-blue stat-large">
-                  <div className="stat-value stat-value-large">225+</div>
+                  <div className="stat-value stat-value-large">300+</div>
                   <div className="stat-label stat-label-large">Youth Provided Education, Housing, and Food</div>
                 </div>
                 <div className="stat-card stat-purple stat-large">
@@ -379,7 +379,7 @@ export default function Home() {
                   <div className="stat-label stat-label-large">Tournaments Held</div>
                 </div>
                 <div className="stat-card stat-green stat-large">
-                  <div className="stat-value stat-value-large">400+</div>
+                  <div className="stat-value stat-value-large">500+</div>
                   <div className="stat-label stat-label-large">Players Participated</div>
                 </div>
               </div>
